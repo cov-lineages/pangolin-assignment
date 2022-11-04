@@ -2,7 +2,6 @@ from setuptools import setup, find_packages
 import glob
 import os
 import pkg_resources
-import git
 from setuptools.command.install import install as _install
 
 # Note: the _program variable is set in __init__.py.
@@ -12,6 +11,7 @@ from pangolin_assignment import __version__, _program
 class install(_install):
     def pull_first(self):
         """This script is in a git directory that can be pulled."""
+        import git
         cwd = os.getcwd()
         gitdir = os.path.dirname(os.path.realpath(__file__))
         os.chdir(gitdir)
@@ -39,6 +39,7 @@ setup(name='pangolin_assignment',
       {program} = pangolin_assignment.command:main
       """.format(program = _program),
       install_requires=["git-lfs"],
+      setup_requires=["git-python"],
       include_package_data=True,
       keywords=[],
       cmdclass={'install': install},
