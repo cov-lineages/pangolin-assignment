@@ -1,3 +1,3 @@
 _program = "pangolin-assignment"
-__version__ = "1.22"
-__date__ = "2023-08-17"
+__version__ = "1.23"
+__date__ = "2023-10-16"
